@@ -1,12 +1,13 @@
 import os
-import pandas as pd
-import streamlit as st
-from datetime import datetime
+import pandas as pd  # type: ignore
+import streamlit as st  # type: ignore
 
 # Constants
 UPLOAD_FOLDER = "uploads"
 DATA_FILE = "health_insurance_data.xlsx"
-BACKGROUND_IMAGE = "https://silverlinecrm.com/wp-content/uploads/2021/03/iStock-881499528.jpg"
+BACKGROUND_IMAGE = (
+    "https://silverlinecrm.com/wp-content/uploads/2021/03/iStock-881499528.jpg"
+)
 
 # Ensure directories and files exist
 if not os.path.exists(UPLOAD_FOLDER):
@@ -24,7 +25,7 @@ if not os.path.exists(DATA_FILE):
             "DATE OF ADMISSION",
             "TOTAL OUT OF POCKET EXPENDITURE",
             "TYPE OF FRAUD",
-            "PHOTO FILE"
+            "PHOTO FILE",
         ]
     ).to_excel(DATA_FILE, index=False)
 
@@ -48,7 +49,7 @@ st.markdown(
     }}
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 # Streamlit App
@@ -66,7 +67,9 @@ with st.form("health_form", clear_on_submit=True):
     total_out_of_pocket_expenditure = st.number_input(
         "Total Out-of-Pocket Expenditure", min_value=0.0, step=0.01
     )
-    fraud_type = st.selectbox("Type of Fraud", ["MONEY COLLECTION", "PACKAGE UPCODING", "BOTH"])
+    fraud_type = st.selectbox(
+        "Type of Fraud", ["MONEY COLLECTION", "PACKAGE UPCODING", "BOTH"]
+    )
     uploaded_photo = st.file_uploader("Upload Photo", type=["jpg", "png", "jpeg"])
 
     submit_button = st.form_submit_button("Submit")
