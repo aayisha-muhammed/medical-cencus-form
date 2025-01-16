@@ -39,13 +39,17 @@ st.markdown(
         background-attachment: fixed;
     }}
     .stApp {{
-        background-color: rgba(0, 0, 0, 0.8);
+       background-color: rgb(0, 0, 0); /* 100% opacity */
+
+
 
         border-radius: 10px;
         padding: 20px;
         max-width: 800px;
         margin: auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+
+
     }}
     </style>
     """,
@@ -70,7 +74,7 @@ with st.form("health_form", clear_on_submit=True):
     fraud_type = st.selectbox(
         "Type of Fraud", ["MONEY COLLECTION", "PACKAGE UPCODING", "BOTH"]
     )
-    uploaded_photo = st.file_uploader("Upload Photo", type=["jpg", "png", "jpeg"])
+    uploaded_photo = st.file_uploader("Upload Photo",type= ["jpg", "png", "jpeg"])
 
     submit_button = st.form_submit_button("Submit")
 
