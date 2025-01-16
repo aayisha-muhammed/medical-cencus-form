@@ -39,7 +39,7 @@ st.markdown(
         background-attachment: fixed;
     }}
     .stApp {{
-       background-color: rgb(0, 0, 0); /* 100% opacity */
+       background-color: rgba(255, 255, 255, 0.8);
 
 
 
